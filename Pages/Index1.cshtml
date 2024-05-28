@@ -1,0 +1,95 @@
+﻿
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Новости";
+}
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Самые просматриваемые новости</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site2.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/News_portal.styles.css" asp-append-version="true" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4 move-all"> Самые просматриваемые новости</h1>
+                <!-- Добавленные вкладки -->
+                <ul class="nav nav-tabs justify-content-end" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="month-tab" data-toggle="tab" href="#month" role="tab" aria-controls="month" aria-selected="true">За месяц</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="all-time-tab" data-toggle="tab" href="#all-time" role="tab" aria-controls="all-time" aria-selected="false">За все время</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="news-container tab-content" id="myTabContent">
+                <div class="main-news tab-pane fade show active" id="month" role="tabpanel" aria-labelledby="month-tab">
+                    <!-- Основные новости за месяц -->
+                    <div class="main-news">
+                        <div class="news-details">
+                            <img src="https://sun9-22.userapi.com/impg/dkUSf0HEo-d_zxvXjrUdK2Mt7hGTYpeKYQZ5sQ/21iqKs_5idw.jpg?size=2560x1920&quality=95&sign=7a60784682e8bfdf20b25d843d7982eb&type=album" alt="Главная новость">
+                            <div class="text-details">
+                                <span class="news-date">16.05.2024 12:20</span>
+                            <h2 class="news-title">УЧАСТИЕ В ШВАРТОВНЫХ ИСПЫТАНИЯХ ЛЕДОКОЛА «ЯКУТИЯ»</h2>
+                            <p class="news-text">Специалисты филиала «Северо-Западный» СПО «Арктика» в Санкт-Петербурге участвуют в швартовных испытаниях третьего серийного универсального атомного ледокола «Якутия» проекта 22220.</p>
+                                <a href="Dalee" class="read-more">Читать далее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-news tab-pane fade" id="all-time" role="tabpanel" aria-labelledby="all-time-tab">
+                    <!-- Основные новости за все время -->
+                    <div class="main-news">
+                        <div class="news-details">
+                            <div class="small-news">
+                                <div class="small-news-item">
+                                    <img src="https://sun9-69.userapi.com/impg/xGxPp32nfAkUNjew74eURrIaZUA3mFjMjDwcPA/ZfEZD67qLvY.jpg?size=1872x1042&quality=95&sign=a4065783655a040dcaa38ec57f940ee3&type=album" alt="Маленькая новость">
+                                    <div class="text-details">
+                                        <span class="news-date">15.05.2024 16:15</span>
+                                        <h3 class="news-title">ВЫБОР ПРОФЕССИИ</h3>
+                                    </div>
+                                </div>
+                                <div class="small-news-item">
+                                    <img src="https://sun9-49.userapi.com/impg/EGvT1uxnxEWb1VIT5JepJPNBrw7BQOVUf7ufuw/44lSBm9KwPQ.jpg?size=2560x1920&quality=95&sign=4bbead9d91bc91700e5cea7ac9cad193&type=album" alt="Маленькая новость">
+                                    <div class="text-details">
+                                        <span class="news-date">14.05.2024 12:00</span>
+                                        <h3 class="news-title">СЛУЖЕБНЫЙ АВТОБУС: ИЗМЕНЕНИЯ В РАСПИСАНИИ</h3>
+                                    </div>
+                                </div>
+                                <div class="small-news-item">
+                                    <img src="https://sun9-24.userapi.com/impg/o3iZTuotq7OWn3xcc9J_3RAXEOMXltj3sBD1Iw/NZtZqbxa7zo.jpg?size=2560x1707&quality=95&sign=8043a031276f4061b0ea47870ec8d02b&type=album" alt="Маленькая новость">
+                                    <div class="text-details">
+                                        <span class="news-date">01.05.2024 12:12</span>
+                                        <h3 class="news-title">ТРУДОВОЙ ПОДВИГ НА ДВУХ АПЛ</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTab a').click(function (e) {
+                e.preventDefault(); // Предотвращаем стандартное поведение ссылки
+
+                // Показываем соответствующую вкладку
+                $(this).tab('show');
+            });
+        });
+    </script>
+    </body>
+</html>
+
+

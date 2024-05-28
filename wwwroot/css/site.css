@@ -1,0 +1,395 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px; /* Maximum width for the main content */
+    margin: 0 auto; /* Center the content */
+    padding: 0 5px; /* Padding for some space on the sides */
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 80px;
+    width: calc(100% - 10px);
+    background-color: #0078c8;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+    .top-bar .left-items {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: -50px;
+    }
+
+    .top-bar .right-items {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 1100px; /* Помещаем элементы в правую часть */
+    }
+
+    .top-bar .navicon,
+    .top-bar .news-info,
+    .top-bar .search,
+    .top-bar .user-info {
+        display: inline-block;
+        vertical-align: middle;
+        color: #fff;
+        margin-left: 50px; /* Отступ между элементами */
+    }
+
+    .top-bar .user-info {
+        margin-left: 40px; /* Больший отступ для пользователя */
+    }
+
+    .top-bar .search {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+    }
+
+    .top-bar .search-input {
+        width: 200px; /* Ширина поля поиска */
+        padding: 8px 30px 8px 10px; /* Внутренние отступы */
+        border: none; /* Убираем границу */
+        border-radius: 20px; /* Закругляем углы */
+        background-color: rgba(255, 255, 255, 0.3); /* Прозрачный фон */
+        color: #fff; /* Цвет текста */
+    }
+
+        .top-bar .search-input:focus {
+            outline: none; /* Убираем рамку при фокусе */
+        }
+
+    .top-bar .search::before {
+        content: "\f002"; /* Код иконки поиска */
+        font-family: "Font Awesome 5 Free"; /* Используем шрифт иконок */
+        font-size: 18px; /* Размер иконки */
+        color: #fff; /* Цвет иконки */
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+
+    .top-bar .news-image {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+        .top-bar .news-image img {
+            width: 50px; /* Ширина изображения */
+            height: 50px; /* Высота изображения */
+            margin-right: -100px; /* Отступ между изображением и текстом */
+        }
+
+    .top-bar .news-info {
+        display: inline-block;
+        vertical-align: middle;
+        color: #fff;
+    }
+
+
+.navicon {
+    cursor: pointer; /* Добавляем курсор указывающий на то, что элемент кликабелен */
+    font-size: var(--navicon-size); /* Используем переменную для размера */
+}
+
+.dropbtn {
+    background-color: #4287f5;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+    .dropdown-content a {
+        color: #333;
+        padding: 10px 15px;
+        display: block;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.3s;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f9f9f9;
+}
+
+.dropdown::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+    border: 6px solid transparent;
+    border-left-color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.menu {
+    display: none;
+}
+.menu.show {
+   display: block;
+   }
+
+.tabs-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background-color: #001350;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+    .tab:hover {
+        background-color: #1e4ba2;
+    }
+
+    .tab img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: -10px;
+    }
+
+#sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    margin-left: 80px;
+    overflow-y: auto;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+    #sidebar .nav-link {
+        color: inherit;
+        transition: color 0.3s;
+    }
+
+        #sidebar .nav-link.active {
+            background-color: transparent;
+        }
+
+        #sidebar .nav-link:hover {
+            color: #007bff;
+        }
+
+.nav-pills .nav-link {
+    color: #000;
+    background-color: #fff;
+    border-radius: 0;
+    font-size: 12px;
+    position: relative;
+    padding-left: 30px;
+}
+
+    .nav-pills .nav-link::before {
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-image: url('your-icon-url.png');
+        background-size: cover;
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+
+    .nav-pills .nav-link:nth-child(1)::before {
+        background-image: url('https://psv4.userapi.com/c909518/u137687128/docs/d44/9d1e90f0b661/9.png?extra=37YOFFXmtWY6867kACewNJEPH7FzfZSZtICDRvLFXTlYtz7jxkqYiIdq7MMYrWVsL9PjRwtl0GU7_Reo-3nE7NulwMSs-xnGksY_8lCt3u27ldFzYeu0VqNpMVTAnQY9ow9m8G18zOA5zhunXCDaEoxl8g');
+    }
+
+    .nav-pills .nav-link:nth-child(2)::before {
+        background-image: url('https://psv4.userapi.com/c909518/u137687128/docs/d60/9e8f1f692e71/10.png?extra=cJa_GyssyilaCMJ2X92ySD1kubOVUljgSoJ4CyGttf7qXeV6Gh7ErMc3r2z609YD4h6LEHoRBpjsimr4xcJVo0qTwapawZwKK4ju7l_BloL_AKzeGOoJqtjjDr5wEKx-BeLKyngaAHcY-eRVz8HAbPpOWw');
+    }
+
+    .nav-pills .nav-link:hover::before {
+        opacity: 1;
+    }
+
+#v-pills-tabContent {
+    margin-left: 100px;
+}
+
+.move-all {
+    margin-left: -850px;
+    margin-right: 20px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.news-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.main-news {
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+    .main-news .news-details {
+        display: flex;
+    }
+
+        .main-news .news-details img {
+            max-width: 450px;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+.text-details {
+    flex: 1;
+}
+
+.news-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.news-date {
+    color: #999;
+}
+
+.news-text {
+    color: #666;
+
+}
+
+.read-more {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+    text-align: center; /* Изменил значение на "center" для центрирования текста */
+    padding: 5px 10px;
+    background-color: #42AAFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #888888;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.small-news {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.small-news-item {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+    .small-news-item img {
+        max-width: 350px;
+        height: auto;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+
+    .small-news-item .text-details {
+        flex: 1;
+    }
+
+.news-title {
+    font-size: 14px;
+}
+
+.news-date {
+    color: #999;
+}
+
+.news-text {
+    color: #666;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}

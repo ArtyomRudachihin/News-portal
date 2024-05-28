@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="move-all">@ViewData["Title"] - Последние новости</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/News_portal.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="top-bar">
+        <div class="left-items">
+            <div class="navicon" style="--navicon-size: 24px;">&#8801;</div>
+            <div class="news-image">
+                <img src="https://psv4.userapi.com/c909518/u137687128/docs/d24/7a7f81c746e7/7.png?extra=4FuntAUr7t97kxz5n4c3fdKDHDVnkAALsuaUV_VaYjy_c96QlGyVdSqCFfYeSuka2_PTapByZ4K1HoEcQCkDlg9rW8v2yTEQhWFP9v2t2cnCWmNx0r_uWjaX8f8nt0gQCjtW9LLTyQwpwDSbqfBof5gaVQ" alt="News Image">
+            </div>
+            <div class="news-info">Новости</div>
+        </div>
+        <div class="right-items">
+            <div class="search">
+                <input type="text" placeholder="Поиск ." class="search-input">
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" id="username"></button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#" onclick="login()">Логин</a>
+                <a href="#">Настройки</a>
+                <a href="#" onclick="logout()">Выход</a>
+            </div>
+         </div>
+       </div>
+    </div>
+</body>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - News_portal - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+    <div id="sidebar">
+        <div class="nav flex-column nav-pills" id="v-pills-popular" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-popular" data-toggle="pill" href="Index" role="tab" aria-controls="v-pills-popular"
+               aria-selected="true">Последние новости</a>
+            <a class="nav-link active" id="v-pills-most-tab" href="Index1">Самые просматриваемые</a>
+
+        </div>
+    </div>
+    <div class="tab-content ml-3" id="v-pills-popularContent">
+        <div class="tab-pane fade show active" id="v-pills-news" role="tabpanel" aria-labelledby="v-v-pills-popular">...</div>
+        <div class="tab-pane fade" id="v-pills-popular" role="tabpanel" aria-labelledby="v-pills-popular-tab">...</div>
+    </div>
+    </footer>
+    <div class="tabs-area">
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="Портал">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d28/c191dc3782db/1.png?extra=kQzcAcHtGRayyHRrkmWODBn3bhTVJzP6n1YTxxh2FBLEEQnEZjSFqTg04R95pniZk2SPOvW4K1QhReoch8V3O5iTBYOcBSMSa4DsQTuKe0Udd9nV4F4Z6CDf8QqG_cp2fN4XK6n5xVxf_uX9aI7b5jzAXw" alt="Портал" />
+            Портал
+        </div>
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="Документы">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d45/6acc93843fbd/2.png?extra=1eVRoXaT2rNMmAckL5DL_ggSa1bUNHQVlgqM-th1V-MX7knjS0BqtuCgStaarTpdLIX0tCypJ9uKgwgUzDQtjGM-osiioWd7aDsoVND1hmbHrN8Ch-lF1-dIU4GlsJoqkZSowLKBcN5Nfv7J877j1IzF1w"
+                 alt="Документы" />
+            Документы
+        </div>
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="Календарь">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d51/6bf362c09263/3.png?extra=JibRLJeuO6svV4xgVaXVwlfKOCIKoxAw4jsSdi_KhxRuinoVxI_UPvRQJdV-zotWzhMU0E02w4ROzc9lMgnaTdNFu_KcHKI0gvl6XBPmVbOd2mkJqO-JgPaiDv9QSX9JC5WfQYOnpTgZv-8lnt5o-4CN1g"
+                 alt="Календарь" />
+            Календарь
+        </div>
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="База Знаний">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d54/c840e0bc0721/4.png?extra=Clo2pqMrwuRHiga6BC8NW47iy0j83WsQo37aOoxDESKrwJgAigSBgm1dhBji9f-8hpLXXfBkQzp8Kxg11zo6n83rqgftQ7yljZeC_VAh0q_ZTDzmLd2Y5vbc_jgLZFwHBRV_5zZ5wbzT1eu-7wH9tczmNQ"
+                 alt="База Знаний" />
+            База Знаний
+        </div>
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="Архив">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d19/61f1dcc1a18f/5.png?extra=Ee28gTsImHbm__3EJA3AAf-9V4g30PHriPu93rLzs8rk9Re0FGj6iPl85kYo4wrrMlUv5FvKkTzVEZQqS8VQ154VG3VBMLK_potjvlZTzOihnHxS1cGsu9NbqYyIqUr64TGFvY2QW1sURmFK002uE70U_w"
+                 alt="Архив" />
+            Архив
+        </div>
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="Сотрудники">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d44/806a4ecc43aa/6.png?extra=Oxj9lhU4eCwWbZmVbizoamH-OByahxhTS8GzEaG1neWIlyISexKCAZivcSPJzxM9ZskqJPflseITj_2wAmknH8r2CRP0LYLnsXynlG4i4ATem7CCc54gJzf-UqCd4-JzcPtvjTcgoifZdTKhBConhUKd1g"
+                 alt="Сотрудники" />
+            Сотрудники
+        </div>
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="Новости">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d24/7a7f81c746e7/7.png?extra=4FuntAUr7t97kxz5n4c3fdKDHDVnkAALsuaUV_VaYjy_c96QlGyVdSqCFfYeSuka2_PTapByZ4K1HoEcQCkDlg9rW8v2yTEQhWFP9v2t2cnCWmNx0r_uWjaX8f8nt0gQCjtW9LLTyQwpwDSbqfBof5gaVQ"
+                 alt="Новости" />
+            Новости
+        </div>
+        <div class="tab" data-toggle="tooltip" data-placement="right" title="Сервисы">
+            <img src="https://psv4.userapi.com/c909518/u137687128/docs/d4/6a8c7e00a5c3/8.png?extra=bzKIokMkKoakkh8AOCduz3n9vssmug7WACEgl9ZNhDJOv7RG5LqlL76TZUhbwATdhjYqc5oUmge5hw4-nmCMtNwL-a9C3MwaFEt_VQcN2Zb40hpS-8-L0SghrX63Aj_voAUSfKVE2lTaRALHIQOd2nUawQ"
+                 alt="Сервисы" />
+            Сервисы
+        </div>
+    </div>
+    <script>
+        let isLoggedIn = false;
+        let username = "";
+
+        function login() {
+            const savedUsername = localStorage.getItem("username");
+            const savedPassword = localStorage.getItem("password");
+
+            if (savedUsername && savedPassword) {
+                // Call API to authenticate user with saved credentials
+                // ...
+                document.getElementById("username").textContent = savedUsername;
+                isLoggedIn = true;
+            } else {
+                const username = prompt("Enter your username:");
+                const password = prompt("Enter your password:");
+
+                if (username && password) {
+                    // Call API to authenticate user
+                    // ...
+                    // Update user info
+                    document.getElementById("username").textContent = username;
+                    isLoggedIn = true;
+
+                    // Save username and password to localStorage
+                    localStorage.setItem("username", username);
+                    localStorage.setItem("password", password);
+                }
+            }
+        }
+
+        function logout() {
+            // Call API to log out user
+            // ...
+            // Update user info
+            document.getElementById("username").textContent = "";
+            isLoggedIn = false;
+
+            // Remove saved username and password from localStorage
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+        }
+
+        // Check saved user login status on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            const savedUsername = localStorage.getItem("username");
+
+            if (savedUsername) {
+                isLoggedIn = true;
+                document.getElementById("username").textContent = savedUsername;
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            let dropdownContent = document.querySelector('.dropdown-content');
+            let target = event.target;
+            if (!target.closest('.dropdown') && dropdownContent.style.display === 'block') {
+                dropdownContent.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.navicon').addEventListener('click', function () {
+            document.querySelector('.menu').classList.toggle('show');
+        });
+
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
